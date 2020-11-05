@@ -47,14 +47,18 @@ public class UserDB {
         }
     }
 
-    public List<Users> getAll() throws NotesDBException {
-        EntityManager  em = DBUtil.getEmFactory().createEntityManager();       
+    public ArrayList<Users> getAll() throws NotesDBException {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();       
         try {
             //get all notes from all users
             //List<Note> notes = em.createNamedQuery("Note.findAll", Note.class).getResultList();
             
             List<Users> users = em.createNamedQuery("Users.findAll", Users.class).getResultList();
-            return users;
+            ArrayList<Users> uList = new ArrayList<>();
+            for(int i = 0; i < users.size(); i++){
+                uList.add(users.get(i));
+            }
+            return uList;
         } finally {
             em.close();
         }
