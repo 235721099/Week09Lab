@@ -20,13 +20,13 @@ public class UserService {
         return userDB.getAll();
     }
 
-    public void update(String username, String password, String firstname, String lastname, String email) throws Exception {
+    public int update(String username, String password, String firstname, String lastname, String email) throws Exception {
         Users user = get(username);
         user.setPassword(password);
         user.setFirstname(firstname);
         user.setLastname(lastname);
         user.setEmail(email);
-        //return userDB.update(user);
+        return userDB.update(user);
     }
 
     public int delete(String username) throws Exception {

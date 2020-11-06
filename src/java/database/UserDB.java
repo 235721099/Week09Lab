@@ -64,13 +64,6 @@ public class UserDB {
         }
     }
 
-    /**
-     * Get a single user by their username.
-     *
-     * @param username The unique username.
-     * @return A User object if found, null otherwise.
-     * @throws NotesDBException
-     */
     public Users getUser(String username) throws NotesDBException {
         EntityManager  em = DBUtil.getEmFactory().createEntityManager();
         
